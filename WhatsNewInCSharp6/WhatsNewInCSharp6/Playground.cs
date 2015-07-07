@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using WhatsNewInCSharp6.Classes;
 
 namespace WhatsNewInCSharp6
 {
@@ -6,9 +8,17 @@ namespace WhatsNewInCSharp6
     public class Playground
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ExpressionBodyMember()
         {
+            var ebm = new ExpressionBodyMember
+            {
+                X = 3,
+                Y = 4
+            };
 
+            ebm.Should().NotBeNull();
+
+            ebm.Distance.ShouldBeEquivalentTo(5);
         }
     }
 }
