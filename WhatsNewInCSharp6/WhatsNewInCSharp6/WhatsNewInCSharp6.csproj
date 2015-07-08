@@ -60,7 +60,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Classes\Company.cs" />
     <Compile Include="Classes\ExpressionBodyMember.cs" />
+    <Compile Include="EvilGeniusApp\EvilGenius.cs" />
+    <Compile Include="EvilGeniusApp\HenchMen.cs" />
     <Compile Include="Playground.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
