@@ -1,6 +1,8 @@
-﻿using FluentAssertions;
+﻿using System.Collections.Generic;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WhatsNewInCSharp6.Classes;
+using WhatsNewInCSharp6.EvilGeniusApp;
 
 namespace WhatsNewInCSharp6
 {
@@ -54,6 +56,51 @@ namespace WhatsNewInCSharp6
 
             var lineOne2 = company2.ContactPerson?.HomeAddress?.LineOne;
             lineOne2.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void StringFormatting()
+        {
+
+            var someObject = new
+            {
+              Name = "André",
+              Minion =  new HenchMen
+              {
+                  Name = "BeastPet"
+              }
+            };
+
+            var result = string.Format("{0}, {1}", someObject.Name, someObject.Minion?.Name);
+
+            //New string formatting
+            var result2 = $"{someObject.Name}, {someObject.Minion?.Name}";
+
+            result.Should().NotBeNullOrWhiteSpace();
+            result2.Should().NotBeNullOrWhiteSpace();
+
+            result.Should().BeEquivalentTo(result2);
+        }
+
+        [TestMethod]
+        public void NewDictionaryInitialization()
+        {
+            var webErrors = new Dictionary<int, string>
+            {
+                [404] = "Page not Found.",
+                [302] = "Page moved, but left a forwarding address.",
+                [500] = "The web server can't come out to play today."
+            };
+
+            webErrors[404].ShouldAllBeEquivalentTo("Page not Found.");
+            webErrors[302].ShouldAllBeEquivalentTo("Page moved, but left a forwarding address.");
+            webErrors[500].ShouldAllBeEquivalentTo("The web server can't come out to play today.");
+        }
+
+        [TestMethod]
+        public void NewDictionaryInitialization_To_Json()
+        {
+            //Left off on the video at 24.56
         }
     }
 }
