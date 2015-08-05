@@ -10,7 +10,7 @@ namespace WhatsNewInCSharp6
     public class Playground
     {
         [TestMethod]
-        public void UsingExpressionBodyMemebers()
+        public void UsingExpressionBodyMembers()
         {
             var ebmObj = new ExpressionBodyMember
             {
@@ -20,7 +20,7 @@ namespace WhatsNewInCSharp6
 
             ebmObj.Should().NotBeNull();
 
-            //Distance was created via expression body memebers.
+            //Distance was created via expression body members.
             ebmObj.Distance.ShouldBeEquivalentTo(13);
         }
 
