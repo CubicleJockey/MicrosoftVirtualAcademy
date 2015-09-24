@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WhatsNewInCSharp6.Classes;
@@ -95,6 +97,20 @@ namespace WhatsNewInCSharp6
             webErrors[404].ShouldAllBeEquivalentTo("Page not Found.");
             webErrors[302].ShouldAllBeEquivalentTo("Page moved, but left a forwarding address.");
             webErrors[500].ShouldAllBeEquivalentTo("The web server can't come out to play today.");
+        }
+
+        /// <exception cref="IOException">An I/O error occurred. </exception>
+        [TestMethod]
+        public void Json()
+        {
+            var drEvil = new EvilGenius2("Dr. Evil");
+            Console.WriteLine(EvilGenius2.ToJson(new[] { drEvil }));
+
+            drEvil.ReplaceHenchmen(new HenchMen { Name = "Scott Evil"});
+            Console.WriteLine(EvilGenius2.ToJson(new[] { drEvil }));
+
+            drEvil.ReplaceHenchmen(null);
+            Console.WriteLine(EvilGenius2.ToJson(new[] { drEvil }));
         }
 
         [TestMethod]

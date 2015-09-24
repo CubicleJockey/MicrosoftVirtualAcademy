@@ -7,8 +7,9 @@ namespace WhatsNewInCSharp6.EvilGeniusApp
     {
         public string Name { get; set; }
 
-        public HenchMen Minion => minion;
-        private HenchMen minion;
+        private HenchMen _minion;
+        public HenchMen Minion => _minion;
+        
 
         public string CatchPhrase { get; set; }
 
@@ -21,10 +22,11 @@ namespace WhatsNewInCSharp6.EvilGeniusApp
 
         public override string ToString() => $"{Name}, {Minion?.Name}";
 
+        /// <exception cref="NullReferenceException">The address of <paramref name="location1" /> is a null pointer. </exception>
         public void ReplaceHenchmen(HenchMen newMinion)
         {
             //did static using for Interlock.Exchange
-            var oldMinion = Exchange(ref minion, newMinion);
+            var oldMinion = Exchange(ref _minion, newMinion);
            (oldMinion as IDisposable)?.Dispose();
         }
     }

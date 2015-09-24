@@ -7,7 +7,7 @@
         
         
         //These have to be set by a constructor or intializer
-        //anywhere elese will throw a compiler error
+        //anywhere else will throw a compiler error
         public double X { get; }
         public double Y { get; }
 

@@ -67,6 +67,7 @@
     <Compile Include="Classes\Company.cs" />
     <Compile Include="Classes\ExpressionBodyMember.cs" />
     <Compile Include="DataTransferObjectSupport\Point.cs" />
+    <Compile Include="EvilGeniusApp\EvilGenious2.cs" />
     <Compile Include="EvilGeniusApp\EvilGenius.cs" />
     <Compile Include="EvilGeniusApp\HenchMen.cs" />
     <Compile Include="Playground.cs" />
