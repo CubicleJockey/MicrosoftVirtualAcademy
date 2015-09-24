@@ -113,10 +113,29 @@ namespace WhatsNewInCSharp6
             Console.WriteLine(EvilGenius2.ToJson(new[] { drEvil }));
         }
 
+
         [TestMethod]
-        public void NewDictionaryInitialization_To_Json()
+        public void NameOf()
         {
-            //Left off on the video at 24.56
+            //the name of keyword is a way to keep bindings in sync, rather than using a string literal
+            //now an object or property rename is changed everywhere
+
+            Console.WriteLine("New Way!");
+            Console.WriteLine(nameof(EvilGenius));
+            Console.WriteLine(nameof(EvilGenius.Name));
+
+            //Old way
+            Console.WriteLine("Old Way");
+            Console.WriteLine(typeof(EvilGenius).Name);
+
+            //can't do this one
+            //Console.WriteLine(typeof(EvilGenius.Name).Name);
+
+
+            var drEvil = new EvilGenius2("Dr. Evil");
+            drEvil.ReplaceHenchmen(new HenchMen { Name = "Scott Evil"});
+
+            Console.WriteLine(drEvil);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using Newtonsoft.Json.Linq;
 using static System.Threading.Interlocked;
 
@@ -18,8 +19,18 @@ namespace WhatsNewInCSharp6.EvilGeniusApp
 
         #region Constructors
 
+        /// <exception cref="ArgumentNullException"><paramref name=""/> is <see langword="null" />.</exception>
+        /// <exception cref="ArgumentException">Evil genius must have a name</exception>
         public EvilGenius2(string name)
         {
+            if(name == null)
+            {
+                throw new ArgumentNullException(nameof(name), "Evil genius has to have name");
+            }
+            if(string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Evil genius must have a name", nameof(name));
+            }
             Name = name;
         }
 
@@ -28,7 +39,15 @@ namespace WhatsNewInCSharp6.EvilGeniusApp
 
         public string CatchPhrase { get; set; }
 
-        public override string ToString() => $"{Name}, {Minion?.Name}";
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"{nameof(Name)}: {Name}");
+            sb.AppendLine($"{nameof(Minion)}: {Minion?.Name}");
+
+            return sb.ToString();
+        }
 
         /// <exception cref="NullReferenceException">The address of <paramref name="location1" /> is a null pointer. </exception>
         public void ReplaceHenchmen(HenchMen newMinion)

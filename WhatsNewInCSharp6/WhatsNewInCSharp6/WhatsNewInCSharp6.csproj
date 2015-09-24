@@ -69,12 +69,17 @@
     <Compile Include="DataTransferObjectSupport\Point.cs" />
     <Compile Include="EvilGeniusApp\EvilGenious2.cs" />
     <Compile Include="EvilGeniusApp\EvilGenius.cs" />
+    <Compile Include="EvilGeniusApp\EvilPlanViewModel.cs" />
     <Compile Include="EvilGeniusApp\HenchMen.cs" />
     <Compile Include="Playground.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Notes\C#6.docx" />
+    <None Include="Notes\DataTransferObjectEnhancements.pptx" />
+    <None Include="Notes\ProductivityAndConciseness.pptx" />
+    <None Include="Notes\StrinInterpolation.pptx" />
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>
