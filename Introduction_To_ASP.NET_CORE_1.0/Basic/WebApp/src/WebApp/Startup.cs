@@ -12,6 +12,8 @@ namespace WebApp
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //https://github.com/aspnet/StaticFiles/blob/dev/src/Microsoft.AspNetCore.StaticFiles/DirectoryBrowserServiceExtensions.cs
+            services.AddDirectoryBrowser();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -24,13 +26,16 @@ namespace WebApp
                 app.UseDeveloperExceptionPage();
             }
 
+            //https://github.com/aspnet/StaticFiles
             //Order matters.
-            app.UseFileServer();//Will default to index.html
-            //app.UseStaticFiles();
+            //app.UseDirectoryBrowser();
+
+            /*Will default to index.html*/
+            app.UseFileServer(); 
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("App is running.");
+                await context.Response.WriteAsync($"App is running in mode: [{env.EnvironmentName}.]");
             });
         }
     }
