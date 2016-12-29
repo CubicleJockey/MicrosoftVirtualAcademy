@@ -24,9 +24,13 @@ namespace WebApp
                 app.UseDeveloperExceptionPage();
             }
 
+            //Order matters.
+            app.UseFileServer();//Will default to index.html
+            //app.UseStaticFiles();
+
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("App is running.");
             });
         }
     }
