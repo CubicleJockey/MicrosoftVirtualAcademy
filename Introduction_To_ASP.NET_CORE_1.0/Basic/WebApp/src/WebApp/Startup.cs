@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Text;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Thingy;
 
 namespace WebApp
 {
@@ -24,7 +26,7 @@ namespace WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             //https://github.com/aspnet/StaticFiles/blob/dev/src/Microsoft.AspNetCore.StaticFiles/DirectoryBrowserServiceExtensions.cs
-            services.AddDirectoryBrowser();
+            //services.AddDirectoryBrowser();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,11 +44,17 @@ namespace WebApp
             //app.UseDirectoryBrowser();
 
             /*Will default to index.html*/
-            app.UseFileServer(); 
+            //app.UseFileServer(); 
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync($"App is running in mode: [{env.EnvironmentName} it's something [{Configuration["Message"]}].]");
+                var stuff = new Stuff();
+
+                var sb = new StringBuilder();
+                sb.AppendLine($"App is running in mode: [{env.EnvironmentName} it's something [{Configuration["Message"]}].]");
+                sb.AppendLine(stuff.Message);
+
+                await context.Response.WriteAsync(sb.ToString());
             });
         }
     }

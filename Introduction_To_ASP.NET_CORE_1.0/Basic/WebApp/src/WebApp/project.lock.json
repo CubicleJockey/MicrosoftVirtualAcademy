@@ -2906,6 +2906,19 @@
         "runtime": {
           "lib/netstandard1.3/_._": {}
         }
+      },
+      "Thingy/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v1.6",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "netstandard1.6/Thingy.dll": {}
+        },
+        "runtime": {
+          "netstandard1.6/Thingy.dll": {}
+        }
       }
     }
   },
@@ -8313,6 +8326,11 @@
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
       ]
+    },
+    "Thingy/1.0.0": {
+      "type": "project",
+      "path": "../Thingy/project.json",
+      "msbuildProject": "../Thingy/Thingy.xproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8323,7 +8341,8 @@
       "Microsoft.AspNetCore.StaticFiles >= 1.1.0",
       "Microsoft.Extensions.Configuration.Json >= 1.1.0",
       "Microsoft.Extensions.Logging.Console >= 1.0.0",
-      "Microsoft.NETCore.App >= 1.0.1"
+      "Microsoft.NETCore.App >= 1.0.1",
+      "Thingy >= 1.0.0-*"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
