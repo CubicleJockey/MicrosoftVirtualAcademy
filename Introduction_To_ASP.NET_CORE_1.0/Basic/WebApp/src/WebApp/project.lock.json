@@ -219,6 +219,36 @@
           "lib/netstandard1.3/Microsoft.AspNetCore.HttpOverrides.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Routing/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Extensions": "1.1.0",
+          "Microsoft.AspNetCore.Routing.Abstractions": "1.1.0",
+          "Microsoft.Extensions.Logging.Abstractions": "1.1.0",
+          "Microsoft.Extensions.ObjectPool": "1.1.0",
+          "Microsoft.Extensions.Options": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Routing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Routing.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Routing.Abstractions/1.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Routing.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Microsoft.AspNetCore.Routing.Abstractions.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Server.IISIntegration/1.0.0": {
         "type": "package",
         "dependencies": {
@@ -589,13 +619,10 @@
           "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.dll": {}
         }
       },
-      "Microsoft.Extensions.ObjectPool/1.0.0": {
+      "Microsoft.Extensions.ObjectPool/1.1.0": {
         "type": "package",
         "dependencies": {
-          "System.Diagnostics.Debug": "4.0.11",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Threading": "4.0.11"
+          "NETStandard.Library": "1.6.1"
         },
         "compile": {
           "lib/netstandard1.3/Microsoft.Extensions.ObjectPool.dll": {}
@@ -3069,6 +3096,32 @@
         "lib/netstandard1.3/Microsoft.AspNetCore.HttpOverrides.xml"
       ]
     },
+    "Microsoft.AspNetCore.Routing/1.1.0": {
+      "sha512": "wrD6DOWc4/euIujz7trLrF3zGVMxOGKRPzYl4e2NFOE/uXz95EnNBHkNuN0Xcgx3xVcb08TMxkoFNT3A+WC0XA==",
+      "type": "package",
+      "path": "Microsoft.AspNetCore.Routing/1.1.0",
+      "files": [
+        "lib/net451/Microsoft.AspNetCore.Routing.dll",
+        "lib/net451/Microsoft.AspNetCore.Routing.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Routing.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Routing.xml",
+        "microsoft.aspnetcore.routing.1.1.0.nupkg.sha512",
+        "microsoft.aspnetcore.routing.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Routing.Abstractions/1.1.0": {
+      "sha512": "/kaFZW4AjHPOIMnqXHGl/KdHxUGOVm9z/U0t3JtKmK5OFnsfuLsUIH2QN2PtXNeOm1eh5Ux2XEyg6YRBgXfPgA==",
+      "type": "package",
+      "path": "Microsoft.AspNetCore.Routing.Abstractions/1.1.0",
+      "files": [
+        "Microsoft.AspNetCore.Routing.Abstractions.1.1.0.nupkg.sha512",
+        "Microsoft.AspNetCore.Routing.Abstractions.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Routing.Abstractions.dll",
+        "lib/net451/Microsoft.AspNetCore.Routing.Abstractions.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Routing.Abstractions.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Routing.Abstractions.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Server.IISIntegration/1.0.0": {
       "sha512": "xmn6EivvL4Ymo7LP+Jc49WLcIiYsUiujZo0loEbAg473nY2dIHxcxncpFAKzPf/MzqN0qBtaXEP0igYJ813H3Q==",
       "type": "package",
@@ -3397,12 +3450,12 @@
         "lib/netstandard1.3/Microsoft.Extensions.Logging.Console.xml"
       ]
     },
-    "Microsoft.Extensions.ObjectPool/1.0.0": {
-      "sha512": "BTXoWSTrv/saLlNSg8l41YOoSKeUUanQLykUqRTtiUJz2xxQOCgm4ckPzrdmSK6w0mdjR2h7IrUDGdBF78Z7yg==",
+    "Microsoft.Extensions.ObjectPool/1.1.0": {
+      "sha512": "8tg7DpFubtj98Lf+N+zpu5VXe9EHCPrqcukpsjC9BSfcnC0Oq8CUZKYUsLScS2pnqEkSNHwuHoWRtJ6xhMO/xg==",
       "type": "package",
-      "path": "Microsoft.Extensions.ObjectPool/1.0.0",
+      "path": "Microsoft.Extensions.ObjectPool/1.1.0",
       "files": [
-        "Microsoft.Extensions.ObjectPool.1.0.0.nupkg.sha512",
+        "Microsoft.Extensions.ObjectPool.1.1.0.nupkg.sha512",
         "Microsoft.Extensions.ObjectPool.nuspec",
         "lib/net451/Microsoft.Extensions.ObjectPool.dll",
         "lib/net451/Microsoft.Extensions.ObjectPool.xml",
@@ -8336,6 +8389,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
+      "Microsoft.AspNetCore.Routing >= 1.1.0",
       "Microsoft.AspNetCore.Server.IISIntegration >= 1.0.0",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.1",
       "Microsoft.AspNetCore.StaticFiles >= 1.1.0",

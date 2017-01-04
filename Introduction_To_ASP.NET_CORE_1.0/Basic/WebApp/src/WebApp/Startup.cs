@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -27,6 +28,8 @@ namespace WebApp
         {
             //https://github.com/aspnet/StaticFiles/blob/dev/src/Microsoft.AspNetCore.StaticFiles/DirectoryBrowserServiceExtensions.cs
             //services.AddDirectoryBrowser();
+
+            services.AddRouting();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,16 +49,26 @@ namespace WebApp
             /*Will default to index.html*/
             //app.UseFileServer(); 
 
-            app.Run(async (context) =>
-            {
-                var stuff = new Stuff();
+            //Note: Order matters
+            var routeBuilder = new RouteBuilder(app);
+            routeBuilder.MapGet(string.Empty, context => context.Response.WriteAsync("Default route."));
+            routeBuilder.MapGet("Thingy", context => context.Response.WriteAsync("Thingy route."));
+            routeBuilder.MapGet("thingy/stuff", context => context.Response.WriteAsync("Complex Route"));
+            routeBuilder.MapGet("thingy/{id:int}", 
+                                context => context.Response.WriteAsync($"Thingy value: [{context.GetRouteValue("id")}]"));
 
-                var sb = new StringBuilder();
-                sb.AppendLine($"App is running in mode: [{env.EnvironmentName} it's something [{Configuration["Message"]}].]");
-                sb.AppendLine(stuff.Message);
+            app.UseRouter(routeBuilder.Build());
 
-                await context.Response.WriteAsync(sb.ToString());
-            });
+            //app.Run(async (context) =>
+            //{
+            //    var stuff = new Stuff();
+
+            //    var sb = new StringBuilder();
+            //    sb.AppendLine($"App is running in mode: [{env.EnvironmentName} it's something [{Configuration["Message"]}].]");
+            //    sb.AppendLine(stuff.Message);
+
+            //    await context.Response.WriteAsync(sb.ToString());
+            //});
         }
     }
 }
