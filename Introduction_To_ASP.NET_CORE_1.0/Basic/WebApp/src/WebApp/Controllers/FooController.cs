@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace WebApp.Controllers
+﻿namespace WebApp.Controllers
 {
     public class FooController
     {
-        [HttpGet("/")]
-        public string Index() => "Hello from MVC, well acutally just the C(Controller)!";
-
-        [HttpGet("/Foo")]
-        public string SomethingElse() => "Hello from Foo.";
+        public string Index() => "Hello from MVC, well actually just the C(Controller)!";
+        public string SomethingElse() => "Hello from SomethingElse method..";
     }
 }
